@@ -12,8 +12,8 @@ public class AutoCommand extends SequentialCommandGroup {
     public AutoCommand(final DriveSubsystem subsystem) {
         addRequirements(subsystem);
         m_subsystem = subsystem;
-        addCommands(new DriveCommand(m_subsystem, 0.0, 0.0).withTimeout(kAutoWaitSeconds));
-        addCommands(new DriveCommand(m_subsystem, AutoConstants.kAutoSpeed, 0).withTimeout(kAutoDriveTime));
-        addCommands(new DriveCommand(m_subsystem, 0.0, 0.0));
+        addCommands(new DriveCommand(m_subsystem, 0.0, 0.0).withTimeout(kAutoWaitSeconds),
+            new DriveCommand(m_subsystem, AutoConstants.kAutoSpeed, 0).withTimeout(kAutoDriveTime),
+            new DriveCommand(m_subsystem, 0.0, 0.0));
     };
 }
